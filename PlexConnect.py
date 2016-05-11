@@ -86,7 +86,10 @@ def startup():
     # proxy for ATVSettings
     proxy = BaseManager()
     proxy.register('ATVSettings', ATVSettings.CATVSettings)
-    proxy.start(initProxy)
+    try:
+       proxy.start(initProxy)
+    except:
+       proxy.start()
     param['CATVSettings'] = proxy.ATVSettings()
     
     running = True
